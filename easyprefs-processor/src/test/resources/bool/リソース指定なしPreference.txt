@@ -1,0 +1,37 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.preference.CheckBoxPreference;
+import android.util.AttributeSet;
+
+public class BoolPrefSample_CheckBoxPreference extends CheckBoxPreference {
+  public BoolPrefSample_CheckBoxPreference(Context context) {
+    super(context);
+    initialize();
+  }
+
+  public BoolPrefSample_CheckBoxPreference(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    initialize();
+  }
+
+  public BoolPrefSample_CheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    initialize();
+  }
+
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public BoolPrefSample_CheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    super(context, attrs, defStyleAttr, defStyleRes);
+    initialize();
+  }
+
+  private void initialize() {
+    setKey("com.nagopy.android.easyprefs.sample.prefs.BoolPrefSample");
+    setTitle(1);
+    setSummary(2);
+    setDefaultValue(getContext().getResources().getBoolean(3));
+  }
+}

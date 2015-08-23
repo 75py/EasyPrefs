@@ -1,0 +1,60 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.util.AttributeSet;
+import com.nagopy.android.easyprefs.preference.AbstractMultiSelectionPreference;
+import java.lang.Override;
+import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MultiSelectionSample_MultiSelectionPreference extends AbstractMultiSelectionPreference<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> {
+  public MultiSelectionSample_MultiSelectionPreference(Context context) {
+    super(context);
+    initialize(context);
+  }
+
+  public MultiSelectionSample_MultiSelectionPreference(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    initialize(context);
+  }
+
+  public MultiSelectionSample_MultiSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    initialize(context);
+  }
+
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public MultiSelectionSample_MultiSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    super(context, attrs, defStyleAttr, defStyleRes);
+    initialize(context);
+  }
+
+  private void initialize(Context context) {
+    setKey("com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample");
+    setTitle("title");
+  }
+
+  @Override
+  protected List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> getEntries() {
+    List entries = new ArrayList<>();
+    for (com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum value : com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum.values()) {
+      if (value.minSdkVersion() <= Build.VERSION.SDK_INT ) {
+        entries.add(value);
+      }
+    }
+    return entries;
+  }
+
+  @Override
+  protected String getDefaultValue() {
+    return null;
+  }
+
+  @Override
+  protected boolean nullable() {
+    return true;
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen>
+
+    <com.nagopy.android.easyprefs.sample.prefs.ShowToastSetting_CheckBoxPreference />
+    <com.nagopy.android.easyprefs.sample.prefs.CategorySetting_SingleSelectionPreference />
+    <com.nagopy.android.easyprefs.sample.prefs.FruitsSetting_MultiSelectionPreference />
+</PreferenceScreen>

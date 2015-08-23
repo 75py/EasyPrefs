@@ -1,0 +1,62 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.util.AttributeSet;
+import com.nagopy.android.easyprefs.preference.AbstractSingleSelectionPreference;
+import java.lang.Override;
+import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SingleSelectionSample_SingleSelectionPreference extends AbstractSingleSelectionPreference<com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum> {
+  public SingleSelectionSample_SingleSelectionPreference(Context context) {
+    super(context);
+    initialize(context);
+  }
+
+  public SingleSelectionSample_SingleSelectionPreference(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    initialize(context);
+  }
+
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public SingleSelectionSample_SingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    initialize(context);
+  }
+
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public SingleSelectionSample_SingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    super(context, attrs, defStyleAttr, defStyleRes);
+    initialize(context);
+  }
+
+  private void initialize(Context context) {
+    setKey("com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample");
+    setTitle(1);
+    setDefaultValue("TEST");
+  }
+
+  @Override
+  protected List<com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum> getEntries() {
+    List entries = new ArrayList<>();
+    for (com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum value : com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum.values()) {
+      if (value.minSdkVersion() <= Build.VERSION.SDK_INT ) {
+        entries.add(value);
+      }
+    }
+    return entries;
+  }
+
+  @Override
+  protected String getDefaultValue() {
+    return com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum.TEST.name();
+  }
+
+  @Override
+  protected boolean nullable() {
+    return false;
+  }
+}

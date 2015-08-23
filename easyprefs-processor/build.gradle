@@ -1,0 +1,50 @@
+apply plugin: 'com.novoda.bintray-release'
+
+import org.gradle.internal.jvm.Jvm
+
+apply plugin: 'java'
+
+targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    compile files("${SDK_DIR}/platforms/android-${TARGET_SDK_VERSION}/android.jar")
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'com.squareup:javapoet:1.2.0'
+
+    testCompile files("${SDK_DIR}/platforms/android-${TARGET_SDK_VERSION}/android.jar")
+    testCompile 'com.google.dagger:dagger:2.0'
+    testCompile 'org.glassfish:javax.annotation:10.0-b28'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:1.7.0'
+    testCompile 'com.google.testing.compile:compile-testing:0.6'
+    testCompile files(Jvm.current().getToolsJar())
+
+}
+
+//noinspection GroovyAssignabilityCheck
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir '../easyprefs-api/src/main/java'
+            srcDir '../easyprefs-api/build/generated/source/r/release'
+        }
+    }
+}
+sourceSets.test.output.resourcesDir = 'build/classes/test'
+
+tasks.withType(Test) {
+    // superClassName is empty!" error
+    scanForTestClasses = false
+    include "**/*Test.class"
+}
+
+publish {
+    groupId = 'com.nagopy.android'
+    artifactId = 'easyprefs-processor'
+    publishVersion = '0.1.0'
+    desc = 'Preference wrapper'
+    bintrayUser = bintray_user
+    bintrayKey = bintray_api_key
+}
