@@ -5,12 +5,12 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.preference.MultiSelectListPreference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
 import com.google.auto.service.AutoService;
 import com.nagopy.android.easyprefs.annotations.EasyPrefListMulti;
+import com.nagopy.android.easyprefs.preference.AbstractMultiSelectPreference;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
@@ -23,12 +23,9 @@ import com.squareup.javapoet.TypeVariableName;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -41,6 +38,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.MirroredTypeException;
+import javax.rmi.PortableRemoteObject;
 import javax.tools.Diagnostic;
 
 @AutoService(Processor.class)
@@ -145,11 +143,16 @@ public class MuitlSelectionPreferenceProcessor extends AbstractProcessor {
                     .returns(List.class)
                     .returns(parameterizedTypeName)
                     .addCode(CodeBlock.builder()
-                            .addStatement("$T<String> value = sp.getStringSet(key, null)", Set.class)
-                            .beginControlFlow("if (value == null || value.isEmpty())")
-                            .addStatement("return defValue")
-                            .endControlFlow()
-                            .addStatement("return new $T(value)", ArrayList.class)
+                            .addStatement("String value = sp.getString(key, null)")
+                                    .addStatement("return str2Enum(value)")
+//                            .beginControlFlow("if (value == null || value.isEmpty())")
+//                            .addStatement("return defValue")
+//                            .endControlFlow()
+//                            .addStatement("$T resultList = new $T<>()", List.class, ArrayList.class)
+//                            .beginControlFlow("for (String v : value.split($S))", ",")
+//                            .addStatement("resultList.add($L.valueOf(v))", targetClassName)
+//                            .endControlFlow()
+//                            .addStatement("return resultList")
                             .build());
 
             MethodSpec.Builder getDefaultValue = MethodSpec.methodBuilder("getDefaultValue")
@@ -212,11 +215,7 @@ public class MuitlSelectionPreferenceProcessor extends AbstractProcessor {
                     .addStatement("initialize(context)")
                     .build();
             MethodSpec constructor3 = MethodSpec.constructorBuilder()
-                    .addAnnotation(
-                            AnnotationSpec.builder(TargetApi.class)
-                                    .addMember("value", "$T.VERSION_CODES.LOLLIPOP", Build.class)
-                                    .build()
-                    ).addModifiers(Modifier.PUBLIC)
+                    .addModifiers(Modifier.PUBLIC)
                     .addParameter(Context.class, "context")
                     .addParameter(AttributeSet.class, "attrs")
                     .addParameter(int.class, "defStyleAttr")
@@ -240,17 +239,9 @@ public class MuitlSelectionPreferenceProcessor extends AbstractProcessor {
             MethodSpec.Builder initialize = MethodSpec.methodBuilder("initialize")
                     .addModifiers(Modifier.PRIVATE)
                     .addParameter(Context.class, "context")
-                    .addStatement("setKey($S)", key)
-                    .addStatement("$L[] values = $L.values()", targetClassName, targetClassName)
-                    .addStatement("$T<String, String> entries = new $T<>()", Map.class, LinkedHashMap.class)
-                    .beginControlFlow("for ($L val : values)", targetClassName)
-                    .addStatement("entries.put(val.name(), val.getTitle(context))")
-                    .endControlFlow()
-                    .addStatement("setEntryValues(entries.keySet().toArray(new String[entries.size()]))")
-                    .addStatement("setEntries(entries.values().toArray(new String[entries.size()]))");
+                    .addStatement("setKey($S)", key);
             if (annotation.defValue().length() > 0) {
-                initialize.addStatement("setDefaultValue(new $T($T.asList($S.split($S))))",
-                        LinkedHashSet.class, Arrays.class, annotation.defValue(), ",");
+                initialize.addStatement("setDefaultValue($S)", annotation.defValue());
             }
 
             if (annotation.title() > 0) {
@@ -262,14 +253,54 @@ public class MuitlSelectionPreferenceProcessor extends AbstractProcessor {
                 throw new RuntimeException("title or titleStr is required.");
             }
 
+
+            ParameterizedTypeName parameterizedTypeName = ParameterizedTypeName.get(ClassName.get(List.class),
+                    TypeVariableName.get(targetClassName));
+            MethodSpec getEntries = MethodSpec.methodBuilder("getEntries")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PROTECTED)
+                    .returns(parameterizedTypeName)
+                    .addStatement("$T entries = new $T<>()", List.class, ArrayList.class)
+                    .beginControlFlow("for ($L value : $L.values())", targetClassName, targetClassName)
+                    .beginControlFlow("if (value.minSdkVersion() <= $T.SDK_INT )", Build.VERSION.class)
+                    .addStatement("entries.add(value)")
+                    .endControlFlow()
+                    .endControlFlow()
+                    .addStatement("return entries")
+                    .build();
+
+            MethodSpec.Builder getDefaultValue = MethodSpec.methodBuilder("getDefaultValue")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PROTECTED)
+                    .returns(String.class);
+            if (annotation.defValue().isEmpty()) {
+                if (!annotation.nullable()) {
+                    processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "defValue is required if it's not nullable");
+                }
+                getDefaultValue.addStatement("return null");
+            } else {
+                getDefaultValue.addStatement("return $L.$L.name()", targetClassName, annotation.defValue());
+            }
+
+            MethodSpec nullable = MethodSpec.methodBuilder("nullable")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PROTECTED)
+                    .returns(boolean.class)
+                    .addStatement("return $L", annotation.nullable())
+                    .build();
+
             TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "Preference")
                     .addModifiers(Modifier.PUBLIC)
-                    .superclass(MultiSelectListPreference.class)
+                    .superclass(ParameterizedTypeName.get(ClassName.get(AbstractMultiSelectPreference.class)
+                            , TypeVariableName.get(targetClassName)))
                     .addMethod(constructor1)
                     .addMethod(constructor2)
                     .addMethod(constructor3)
                     .addMethod(constructor4)
                     .addMethod(initialize.build())
+                    .addMethod(getEntries)
+                    .addMethod(getDefaultValue.build())
+                    .addMethod(nullable)
                     .build();
 
             JavaFile prefFile = JavaFile.builder(packageName, prefType)

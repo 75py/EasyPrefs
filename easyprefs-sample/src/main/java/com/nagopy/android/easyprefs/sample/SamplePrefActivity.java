@@ -2,16 +2,12 @@ package com.nagopy.android.easyprefs.sample;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.preference.PreferenceFragmentCompat;
 import android.view.View;
 import android.widget.Toast;
 
 import com.nagopy.android.easyprefs.sample.prefs.CategorySetting;
 import com.nagopy.android.easyprefs.sample.prefs.FruitsSetting;
 import com.nagopy.android.easyprefs.sample.prefs.ShowToastSetting;
-
-import java.util.prefs.Preferences;
 
 import javax.inject.Inject;
 
@@ -51,6 +47,6 @@ public class SamplePrefActivity extends PreferenceActivity {
 
     @OnClick(R.id.btn_fruits)
     public void onClickMultiCategoryBtn(View view) {
-        Toast.makeText(getApplicationContext(), fruitsSetting.getValue().size() + "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), fruitsSetting.getValue().toString(), Toast.LENGTH_SHORT).show();
     }
 }

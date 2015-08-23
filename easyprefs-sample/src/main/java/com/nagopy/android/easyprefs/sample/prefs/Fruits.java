@@ -3,7 +3,6 @@ package com.nagopy.android.easyprefs.sample.prefs;
 import android.content.Context;
 
 import com.nagopy.android.easyprefs.MultiSelectionItem;
-import com.nagopy.android.easyprefs.SingleSelectionItem;
 
 public enum Fruits implements MultiSelectionItem {
 
@@ -32,6 +31,11 @@ public enum Fruits implements MultiSelectionItem {
     @Override
     public String getSummary(Context context) {
         return null;
+    }
+
+    @Override
+    public int minSdkVersion() {
+        return 0;
     }
 }
 

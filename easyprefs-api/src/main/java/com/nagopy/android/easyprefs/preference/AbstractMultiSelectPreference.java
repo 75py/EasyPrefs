@@ -27,6 +27,8 @@ import android.util.AttributeSet;
 
 import com.nagopy.android.easyprefs.MultiSelectionItem;
 
+import java.util.List;
+
 public abstract class AbstractMultiSelectPreference<T extends Enum & MultiSelectionItem> extends PreferenceCategory implements Preference.OnPreferenceChangeListener {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -60,7 +62,7 @@ public abstract class AbstractMultiSelectPreference<T extends Enum & MultiSelect
     protected void onAttachedToHierarchy(PreferenceManager preferenceManager) {
         super.onAttachedToHierarchy(preferenceManager);
 
-        for (T t : getValues()) {
+        for (T t : getEntries()) {
             Preference preference = buildPreference(t);
             addPreference(preference);
         }
@@ -83,21 +85,22 @@ public abstract class AbstractMultiSelectPreference<T extends Enum & MultiSelect
     }
 
     protected String getValue() {
-        return sp.getString(getKey(), getDefaultName());
+        String value = sp.getString(getKey(), getDefaultValue());
+        return value == null ? "" : value;
     }
 
-    protected abstract T[] getValues();
+    protected abstract List<T> getEntries();
 
-    protected abstract String getDefaultName();
+    protected abstract String getDefaultValue();
 
-    protected boolean allowEmpty;
+    protected abstract boolean nullable();
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ((CheckBoxPreference) preference).setChecked((Boolean) newValue);
 
         StringBuilder sb = new StringBuilder();
-        for (T t : getValues()) {
+        for (T t : getEntries()) {
             CheckBoxPreference p = (CheckBoxPreference) findPreference(t.name());
             if (p.isChecked()) {
                 sb.append(t.name());
@@ -109,7 +112,7 @@ public abstract class AbstractMultiSelectPreference<T extends Enum & MultiSelect
             sb.setLength(sb.length() - 1);
             sp.edit().putString(getKey(), sb.toString()).apply();
         } else {
-            if (allowEmpty) {
+            if (nullable()) {
                 sp.edit().putString(getKey(), sb.toString()).apply();
             } else {
                 ((CheckBoxPreference) preference).setChecked(true);

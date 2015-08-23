@@ -21,4 +21,6 @@ public @interface EasyPrefListMulti {
 
     String defValue() default "";
 
+    boolean nullable() default true;
+
 }
