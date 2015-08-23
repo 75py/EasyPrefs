@@ -18,5 +18,14 @@ public enum Category implements SingleSelectionItem {
         }
     };
 
+    @Override
+    public String getSummary(Context context) {
+        return null;
+    }
+
+    @Override
+    public int minSdkVersion() {
+        return 0;
+    }
 }
 

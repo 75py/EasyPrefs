@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import com.google.auto.service.AutoService;
 import com.nagopy.android.easyprefs.annotations.EasyPrefListMulti;
 import com.nagopy.android.easyprefs.preference.AbstractMultiSelectPreference;
+import com.nagopy.android.easyprefs.preference.AbstractSingleSelectPreference;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
@@ -144,7 +145,7 @@ public class MuitlSelectionPreferenceProcessor extends AbstractProcessor {
                     .returns(parameterizedTypeName)
                     .addCode(CodeBlock.builder()
                             .addStatement("String value = sp.getString(key, null)")
-                                    .addStatement("return str2Enum(value)")
+                            .addStatement("return str2Enum(value)")
 //                            .beginControlFlow("if (value == null || value.isEmpty())")
 //                            .addStatement("return defValue")
 //                            .endControlFlow()

@@ -17,6 +17,7 @@ sourceSets {
         java {
             srcDir 'src/main/java'
             srcDir  '../easyprefs-api/src/main/java'
+            srcDir  '../easyprefs-api/build/generated/source/r/release'
         }
     }
 }

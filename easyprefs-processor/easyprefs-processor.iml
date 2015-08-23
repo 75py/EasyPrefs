@@ -17,6 +17,9 @@
     <output url="file://$MODULE_DIR$/build/classes/main" />
     <output-test url="file://$MODULE_DIR$/build/classes/test" />
     <exclude-output />
+    <content url="file://$MODULE_DIR$/../easyprefs-api/build/generated/source/r/release">
+      <sourceFolder url="file://$MODULE_DIR$/../easyprefs-api/build/generated/source/r/release" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../easyprefs-api/src/main/java">
       <sourceFolder url="file://$MODULE_DIR$/../easyprefs-api/src/main/java" isTestSource="false" />
     </content>

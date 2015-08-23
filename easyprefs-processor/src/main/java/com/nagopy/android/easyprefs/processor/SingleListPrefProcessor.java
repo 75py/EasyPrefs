@@ -5,23 +5,26 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.preference.ListPreference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
 import com.google.auto.service.AutoService;
 import com.nagopy.android.easyprefs.annotations.EasyPrefListSingle;
+import com.nagopy.android.easyprefs.preference.AbstractSingleSelectPreference;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -40,7 +43,7 @@ import javax.tools.Diagnostic;
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("com.nagopy.android.easyprefs.annotations.EasyPrefListSingle")
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
-public class PrefListProcessor extends AbstractProcessor {
+public class SingleListPrefProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
@@ -196,13 +199,7 @@ public class PrefListProcessor extends AbstractProcessor {
                     .addModifiers(Modifier.PRIVATE)
                     .addParameter(Context.class, "context")
                     .addStatement("setKey($S)", key)
-                    .addStatement("$L[] values = $L.values()", targetClassName, targetClassName)
-                    .addStatement("$T<String, String> entries = new $T<>()", Map.class, LinkedHashMap.class)
-                    .beginControlFlow("for ($L val : values)", targetClassName)
-                    .addStatement("entries.put(val.name(), val.getTitle(context))")
-                    .endControlFlow()
-                    .addStatement("setEntryValues(entries.keySet().toArray(new String[entries.size()]))")
-                    .addStatement("setEntries(entries.values().toArray(new String[entries.size()]))");
+                    ;
 
             if (annotation.title() > 0) {
                 initialize.addStatement("setTitle($L)", annotation.title());
@@ -217,14 +214,53 @@ public class PrefListProcessor extends AbstractProcessor {
                 initialize.addStatement("setDefaultValue($S)", annotation.defValue());
             }
 
+            ParameterizedTypeName parameterizedTypeName = ParameterizedTypeName.get(ClassName.get(List.class),
+                    TypeVariableName.get(targetClassName));
+            MethodSpec getEntries = MethodSpec.methodBuilder("getEntries")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PROTECTED)
+                    .returns(parameterizedTypeName)
+                    .addStatement("$T entries = new $T<>()", List.class, ArrayList.class)
+                    .beginControlFlow("for ($L value : $L.values())", targetClassName, targetClassName)
+                    .beginControlFlow("if (value.minSdkVersion() <= $T.SDK_INT )", Build.VERSION.class)
+                    .addStatement("entries.add(value)")
+                    .endControlFlow()
+                    .endControlFlow()
+                    .addStatement("return entries")
+                    .build();
+
+            MethodSpec.Builder getDefaultValue = MethodSpec.methodBuilder("getDefaultValue")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PROTECTED)
+                    .returns(String.class);
+            if (annotation.defValue().isEmpty()) {
+                if (!annotation.nullable()) {
+                    processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "defValue is required if it's not nullable");
+                }
+                getDefaultValue.addStatement("return null");
+            } else {
+                getDefaultValue.addStatement("return $L.$L.name()", targetClassName, annotation.defValue());
+            }
+
+            MethodSpec nullable = MethodSpec.methodBuilder("nullable")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PROTECTED)
+                    .returns(boolean.class)
+                    .addStatement("return $L", annotation.nullable())
+                    .build();
+
             TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "Preference")
                     .addModifiers(Modifier.PUBLIC)
-                    .superclass(ListPreference.class)
+                    .superclass(ParameterizedTypeName.get(ClassName.get(AbstractSingleSelectPreference.class)
+                            , TypeVariableName.get(targetClassName)))
                     .addMethod(constructor1)
                     .addMethod(constructor2)
                     .addMethod(constructor3)
                     .addMethod(constructor4)
                     .addMethod(initialize.build())
+                    .addMethod(getEntries)
+                    .addMethod(getDefaultValue.build())
+                    .addMethod(nullable)
                     .build();
 
             JavaFile prefFile = JavaFile.builder(packageName, prefType)

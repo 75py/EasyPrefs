@@ -2,6 +2,7 @@
     package="com.nagopy.android.easyprefs">
 
     <application android:allowBackup="true">
+
     </application>
 
 </manifest>

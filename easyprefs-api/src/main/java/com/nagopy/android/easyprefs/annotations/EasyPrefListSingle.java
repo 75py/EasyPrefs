@@ -21,4 +21,6 @@ public @interface EasyPrefListSingle {
 
     String defValue() default "";
 
+    boolean nullable() default true;
+
 }
