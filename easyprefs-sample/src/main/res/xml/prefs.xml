@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.nagopy.android.easyprefs.sample.prefs.ShowToastSettingPreference />
+    <com.nagopy.android.easyprefs.sample.prefs.CategorySettingPreference/>
+    <com.nagopy.android.easyprefs.sample.prefs.FruitsSettingPreference />
+</PreferenceScreen>

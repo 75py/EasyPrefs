@@ -1,0 +1,1 @@
+include ':easyprefs-sample', ':easyprefs-api', ':easyprefs-processor'

@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_7
+
+dependencies {
+    compile files("${SDK_DIR}/platforms/android-${TARGET_SDK_VERSION}/android.jar")
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'com.squareup:javapoet:1.2.0'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.google.testing.compile:compile-testing:0.6'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir  '../easyprefs-api/src/main/java'
+        }
+    }
+}
