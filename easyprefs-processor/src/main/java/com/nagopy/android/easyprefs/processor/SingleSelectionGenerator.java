@@ -23,6 +23,7 @@ import com.squareup.javapoet.TypeVariableName;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
@@ -242,5 +243,20 @@ public class SingleSelectionGenerator extends Generator {
         } catch (IOException e) {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, e.getMessage());
         }
+    }
+
+    @Override
+    public Optional<MethodSpec> generateDaggerProviderMethod() {
+        return annotation.inject() ?
+                Optional.of(MethodSpec.methodBuilder("provide" + simpleClassName)
+                        .addAnnotation(ClassName.get("dagger", "Provides"))
+                        .addAnnotation(ClassName.get("javax.inject", "Singleton"))
+                        .addParameter(Application.class, "application")
+                        .returns(TypeVariableName.get(element.asType()))
+                        .addStatement("return new $T(application)",
+                                ClassName.get(packageName, getClassName))
+                        .build())
+                :
+                Optional.<MethodSpec>empty();
     }
 }

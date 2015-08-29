@@ -15,8 +15,10 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
+import com.squareup.javapoet.TypeVariableName;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
@@ -25,6 +27,7 @@ import javax.tools.Diagnostic;
 
 public class BooleanGenerator extends Generator {
 
+    final Element element;
     final String fullClassName;
     final String simpleClassName;
     final String packageName;
@@ -34,6 +37,7 @@ public class BooleanGenerator extends Generator {
 
     public BooleanGenerator(ProcessingEnvironment processingEnv, Element element) {
         super(processingEnv);
+        this.element = element;
         fullClassName = element.asType().toString();
         simpleClassName = element.getSimpleName().toString();
         packageName = fullClassName.substring(0, fullClassName.length() - simpleClassName.length() - 1);
@@ -177,5 +181,20 @@ public class BooleanGenerator extends Generator {
         } catch (IOException e) {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, e.getMessage());
         }
+    }
+
+    @Override
+    public Optional<MethodSpec> generateDaggerProviderMethod() {
+        return easyPrefBoolean.inject() ?
+                Optional.of(MethodSpec.methodBuilder("provide" + simpleClassName)
+                        .addAnnotation(ClassName.get("dagger", "Provides"))
+                        .addAnnotation(ClassName.get("javax.inject", "Singleton"))
+                        .addParameter(Application.class, "application")
+                        .returns(TypeVariableName.get(element.asType()))
+                        .addStatement("return new $T(application)",
+                                ClassName.get(packageName, getClassName))
+                        .build())
+                :
+                Optional.<MethodSpec>empty();
     }
 }

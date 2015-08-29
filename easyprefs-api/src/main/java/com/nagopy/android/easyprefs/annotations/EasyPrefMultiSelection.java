@@ -13,7 +13,7 @@ public @interface EasyPrefMultiSelection {
 
     Class<? extends Enum> target();
 
-    boolean inject() default false;
+    boolean inject() default true;
 
     int title() default 0;
 

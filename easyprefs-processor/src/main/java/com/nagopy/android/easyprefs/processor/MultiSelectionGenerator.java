@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.annotation.processing.ProcessingEnvironment;
@@ -33,7 +34,7 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.type.MirroredTypeException;
 import javax.tools.Diagnostic;
 
-public class MultiSelectionGenerator extends Generator{
+public class MultiSelectionGenerator extends Generator {
 
     final Element element;
     final String fullClassName;
@@ -286,5 +287,20 @@ public class MultiSelectionGenerator extends Generator{
         } catch (IOException e) {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, e.getMessage());
         }
+    }
+
+    @Override
+    public Optional<MethodSpec> generateDaggerProviderMethod() {
+        return annotation.inject() ?
+                Optional.of(MethodSpec.methodBuilder("provide" + simpleClassName)
+                        .addAnnotation(ClassName.get("dagger", "Provides"))
+                        .addAnnotation(ClassName.get("javax.inject", "Singleton"))
+                        .addParameter(Application.class, "application")
+                        .returns(TypeVariableName.get(element.asType()))
+                        .addStatement("return new $T(application)",
+                                ClassName.get(packageName, getClassName))
+                        .build())
+                :
+                Optional.<MethodSpec>empty();
     }
 }

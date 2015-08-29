@@ -36,7 +36,40 @@
     <favorites_list name="LessRes" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ApplicationModule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationModule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EasyPrefBoolean.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefBoolean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3968254">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EasyPrefMultiSelection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefMultiSelection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="33" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1982,7 +2015,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7202184628000" />
+        <entry key="$PROJECT_DIR$" value="7202732730000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2776,15 +2809,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ShowToast.java" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/prefs/ShowToast.java" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/build/generated/source/apt/debug/com/nagopy/android/easyprefs/sample/GenCategoryList.java" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/prefs/CategoryListPreference.java" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationComponent.java" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/prefs/GenShowToast.java" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/prefs/GenCategoryList.java" />
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/SampleApp.java" />
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/prefs/ShowToastImpl.java" />
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/Test.java" />
@@ -2794,7 +2818,6 @@
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/prefs/CategoryMultiSetting.java" />
         <option value="$PROJECT_DIR$/easyprefs-sample/build/generated/source/apt/debug/com/nagopy/android/easyprefs/sample/prefs/GenCategoryMultiSetting.java" />
         <option value="$PROJECT_DIR$/easyprefs-sample/build/generated/source/apt/debug/com/nagopy/android/easyprefs/sample/prefs/CategoryMultiSettingPreference.java" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationModule.java" />
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/res/layout/activity_sample_pref.xml" />
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/res/xml/prefs.xml" />
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/prefs/FruitsSetting.java" />
@@ -2815,18 +2838,28 @@
         <option value="$PROJECT_DIR$/easyprefs-api/src/main/res/layout/preference_widget_checkbox_single.xml" />
         <option value="$PROJECT_DIR$/easyprefs-api/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/easyprefs-api/build.gradle" />
-        <option value="$PROJECT_DIR$/easyprefs-sample/build.gradle" />
         <option value="$PROJECT_DIR$/easyprefs-sample/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/preference/AbstractSingleSelectPreference.java" />
         <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/MuitlSelectionPreferenceProcessor.java" />
         <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/EasyPrefBooleanProcessor.java" />
-        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/BooleanGenerator.java" />
         <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/SingleListPrefProcessor.java" />
         <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/SingleListGenerator.java" />
         <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/MultiListGenerator.java" />
-        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/EasyPrefProcessor.java" />
-        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/Generator.java" />
         <option value="$PROJECT_DIR$/easyprefs-processor/build.gradle" />
+        <option value="$PROJECT_DIR$/easyprefs-sample/build/generated/source/apt/debug/com/nagopy/android/easyprefs/sample/prefs/BooleanPrefModuleGenShowToastSetting.java" />
+        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/Generator.java" />
+        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/EasyPrefProcessor.java" />
+        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/DaggerModuleGenerator.java" />
+        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationComponent.java" />
+        <option value="$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefSingleSelection.java" />
+        <option value="$PROJECT_DIR$/easyprefs-sample/build.gradle" />
+        <option value="$PROJECT_DIR$/easyprefs-sample/build/generated/source/apt/debug/com/nagopy/android/easyprefs/EasyPrefModule.java" />
+        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/BooleanGenerator.java" />
+        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/MultiSelectionGenerator.java" />
+        <option value="$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/SingleSelectionGenerator.java" />
+        <option value="$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationModule.java" />
+        <option value="$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefMultiSelection.java" />
+        <option value="$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefBoolean.java" />
       </list>
     </option>
   </component>
@@ -2897,7 +2930,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2914,6 +2946,56 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="EasyPrefs" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyprefs-sample" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyPrefs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyprefs-sample" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyPrefs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyprefs-sample" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyPrefs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyprefs-processor" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2987,12 +3069,23 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyprefs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyPrefs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches">
         <subPane />
       </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3045,6 +3138,7 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22_x86" />
     <property name="FullScreen" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/easyprefs-processor/src/main/java" />
+    <property name="SearchEverywhereHistoryKey" value="Bool&#9;FILE&#9;file:///Users/nagopy/AndroidStudioProjects/EasyPrefs/easyprefs-sample/build/generated/source/apt/debug/com/nagopy/android/easyprefs/sample/prefs/BooleanPrefModuleGenShowToastSetting.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -3332,39 +3426,39 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="786" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49253732" sideWeight="0.19670959" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49253732" sideWeight="0.18383405" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49253732" sideWeight="0.8032904" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49253732" sideWeight="0.81044346" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39402986" sideWeight="0.667382" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39402986" sideWeight="0.6602289" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32686567" sideWeight="0.4427754" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.47711015" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49402985" sideWeight="0.639485" order="15" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39402986" sideWeight="0.3397711" order="15" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26895565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26895565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17739628" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789317" sideWeight="0.44849786" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.4513591" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3391,47 +3485,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android/android/4.1.1.4/d0b222ba86f4143dd837ece95f84f0cf220dd737/android-4.1.1.4-sources.jar!/android/os/Build.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.63987136">
-          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/6r4uqcc6ovnq6ac6s0txzcpc0/gradle-2.4/src/base-services/org/gradle/api/JavaVersion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2843602">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/src.zip!/javax/tools/Diagnostic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.971564">
-          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/javapoet/1.2.0/d62da5938fd3e515064e1125f7ca6296cd3b2b3/javapoet-1.2.0-sources.jar!/com/squareup/javapoet/CodeBlock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33175355">
           <caret line="238" column="19" selection-start-line="238" selection-start-column="19" selection-end-line="238" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefBoolean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4340836">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3509,13 +3566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/easyprefs-sample/src/main/res/xml/prefs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3541,20 +3591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5555556">
           <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.521164">
-          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefMultiSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46945336">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -3590,13 +3626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35897437">
           <caret line="853" column="32" selection-start-line="853" selection-start-column="32" selection-end-line="853" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefSingleSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -3643,14 +3672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12711865">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-sample/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="11" selection-start-line="24" selection-start-column="2" selection-end-line="29" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3708,43 +3729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/BooleanGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/SingleSelectionGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="243" column="9" selection-start-line="243" selection-start-column="9" selection-end-line="243" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/EasyPrefProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.96153843">
-          <caret line="54" column="54" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
-          <folding>
-            <element signature="e#2435#2436#0" expanded="true" />
-            <element signature="e#2474#2475#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/MultiSelectionGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.625">
-          <caret line="287" column="9" selection-start-line="287" selection-start-column="9" selection-end-line="287" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/src.zip!/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3753,19 +3737,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1826923">
-          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/preference/AbstractSingleSelectPreference.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3773,6 +3748,136 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5448718">
           <caret line="19" column="70" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.0/de54e525d9cc98c7ec01cc3e7970d0c27600a384/dagger-2.0-sources.jar!/dagger/Provides.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6230032">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar!/javax/inject/Singleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/EasyPrefProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2633#2634#0" expanded="false" />
+            <element signature="e#2672#2673#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefSingleSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1826923">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/DaggerModuleGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47354499">
+          <caret line="34" column="68" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-sample/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.111111">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07936508">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16666667">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/BooleanGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="195" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+          <folding>
+            <element signature="e#9065#9077#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/SingleSelectionGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44444445">
+          <caret line="254" column="72" selection-start-line="254" selection-start-column="72" selection-end-line="254" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-sample/build/generated/source/apt/debug/com/nagopy/android/easyprefs/EasyPrefModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2820513">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-processor/src/main/java/com/nagopy/android/easyprefs/processor/MultiSelectionGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48412699">
+          <caret line="297" column="71" selection-start-line="297" selection-start-column="71" selection-end-line="298" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-sample/src/main/java/com/nagopy/android/easyprefs/sample/ApplicationModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefMultiSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyprefs-api/src/main/java/com/nagopy/android/easyprefs/annotations/EasyPrefBoolean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3968254">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>

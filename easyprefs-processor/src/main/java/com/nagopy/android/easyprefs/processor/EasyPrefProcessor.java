@@ -50,13 +50,16 @@ public class EasyPrefProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         debugLog("--------------------------------------------------------------------------------");
 
+        DaggerModuleGenerator daggerModuleGenerator = new DaggerModuleGenerator(processingEnv);
         annotations.forEach(annotation -> {
             roundEnv.getElementsAnnotatedWith(annotation).forEach(element -> {
                 Generator generator = Generator.getInstance(annotation, processingEnv, element);
                 generator.generateProviderClass();
                 generator.generateNewPreferenceMethod();
+                daggerModuleGenerator.addModule(generator);
             });
         });
+        daggerModuleGenerator.generate();
 
         debugLog("--------------------------------------------------------------------------------");
         return true;

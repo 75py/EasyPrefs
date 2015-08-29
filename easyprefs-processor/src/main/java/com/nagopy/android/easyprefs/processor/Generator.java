@@ -4,6 +4,9 @@ package com.nagopy.android.easyprefs.processor;
 import com.nagopy.android.easyprefs.annotations.EasyPrefBoolean;
 import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
 import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
+import com.squareup.javapoet.MethodSpec;
+
+import java.util.Optional;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
@@ -21,6 +24,8 @@ public abstract class Generator {
     public abstract void generateProviderClass();
 
     public abstract void generateNewPreferenceMethod();
+
+    public abstract Optional<MethodSpec> generateDaggerProviderMethod();
 
     public static Generator getInstance(TypeElement annotationTypeElement, ProcessingEnvironment processingEnv, Element element) {
         Name qualifiedName = annotationTypeElement.getQualifiedName();
