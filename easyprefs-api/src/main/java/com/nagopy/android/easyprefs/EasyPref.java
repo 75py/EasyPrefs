@@ -11,4 +11,6 @@ public interface EasyPref<T> {
     boolean updateValue(T newValue);
 
     boolean clearValue();
+
+    String getKey();
 }

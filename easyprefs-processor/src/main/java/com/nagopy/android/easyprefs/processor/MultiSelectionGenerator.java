@@ -150,6 +150,12 @@ public class MultiSelectionGenerator extends Generator {
                 .returns(boolean.class)
                 .addStatement("return sp.edit().remove(key).commit()");
 
+        MethodSpec.Builder getKey = MethodSpec.methodBuilder("getKey")
+                .addAnnotation(Override.class)
+                .addModifiers(Modifier.PUBLIC)
+                .returns(String.class)
+                .addStatement("return key");
+
         TypeSpec providerType = TypeSpec.classBuilder(getClassName)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(ClassName.get(packageName, simpleClassName))
@@ -163,6 +169,7 @@ public class MultiSelectionGenerator extends Generator {
                 .addMethod(getDefaultValue.build())
                 .addMethod(updateValue.build())
                 .addMethod(clearValue.build())
+                .addMethod(getKey.build())
                 .addMethod(str2Enum)
                 .addMethod(strArray2Enum)
                 .addMethod(toStrArray)

@@ -88,6 +88,12 @@ public class BooleanGenerator extends Generator {
                 .returns(boolean.class)
                 .addStatement("return sp.edit().remove(key).commit()");
 
+        MethodSpec.Builder getKey = MethodSpec.methodBuilder("getKey")
+                .addAnnotation(Override.class)
+                .addModifiers(Modifier.PUBLIC)
+                .returns(String.class)
+                .addStatement("return key");
+
         TypeSpec providerType = TypeSpec.classBuilder(getClassName)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(ClassName.get(packageName, simpleClassName))
@@ -99,6 +105,7 @@ public class BooleanGenerator extends Generator {
                 .addMethod(getDefaultValue.build())
                 .addMethod(updateValue.build())
                 .addMethod(clearValue.build())
+                .addMethod(getKey.build())
                 .build();
         JavaFile providerFile = JavaFile.builder(packageName, providerType)
                 .build();
