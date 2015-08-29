@@ -42,7 +42,7 @@ import javax.tools.Diagnostic;
 
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("com.nagopy.android.easyprefs.annotations.EasyPrefListSingle")
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class SingleListPrefProcessor extends AbstractProcessor {
 
     @Override

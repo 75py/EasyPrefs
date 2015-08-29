@@ -44,7 +44,7 @@ import javax.tools.Diagnostic;
 
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("com.nagopy.android.easyprefs.annotations.EasyPrefListMulti")
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class MuitlSelectionPreferenceProcessor extends AbstractProcessor {
 
     @Override
