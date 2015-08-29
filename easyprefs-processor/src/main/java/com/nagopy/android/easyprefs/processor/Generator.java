@@ -2,8 +2,8 @@ package com.nagopy.android.easyprefs.processor;
 
 
 import com.nagopy.android.easyprefs.annotations.EasyPrefBoolean;
-import com.nagopy.android.easyprefs.annotations.EasyPrefListMulti;
-import com.nagopy.android.easyprefs.annotations.EasyPrefListSingle;
+import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
+import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
@@ -26,10 +26,10 @@ public abstract class Generator {
         Name qualifiedName = annotationTypeElement.getQualifiedName();
         if (qualifiedName.contentEquals(EasyPrefBoolean.class.getCanonicalName())) {
             return new BooleanGenerator(processingEnv, element);
-        } else if (qualifiedName.contentEquals(EasyPrefListSingle.class.getCanonicalName())) {
-            return new SingleListGenerator(processingEnv, element);
-        } else if (qualifiedName.contentEquals(EasyPrefListMulti.class.getCanonicalName())) {
-            return new MultiListGenerator(processingEnv, element);
+        } else if (qualifiedName.contentEquals(EasyPrefSingleSelection.class.getCanonicalName())) {
+            return new SingleSelectionGenerator(processingEnv, element);
+        } else if (qualifiedName.contentEquals(EasyPrefMultiSelection.class.getCanonicalName())) {
+            return new MultiSelectionGenerator(processingEnv, element);
         }
 
         throw new IllegalArgumentException("Unknown:" + annotationTypeElement.getSimpleName());

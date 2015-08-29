@@ -8,7 +8,7 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
-import com.nagopy.android.easyprefs.annotations.EasyPrefListSingle;
+import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
 import com.nagopy.android.easyprefs.preference.AbstractSingleSelectPreference;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
@@ -30,25 +30,25 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.type.MirroredTypeException;
 import javax.tools.Diagnostic;
 
-public class SingleListGenerator extends Generator {
+public class SingleSelectionGenerator extends Generator {
     final Element element;
     final String fullClassName;
     final String simpleClassName;
     final String packageName;
     final String getClassName;
     final String key;
-    final EasyPrefListSingle annotation;
+    final EasyPrefSingleSelection annotation;
 
     private String targetClassName;
 
-    public SingleListGenerator(ProcessingEnvironment processingEnv, Element element) {
+    public SingleSelectionGenerator(ProcessingEnvironment processingEnv, Element element) {
         super(processingEnv);
         this.element = element;
         fullClassName = element.asType().toString();
         simpleClassName = element.getSimpleName().toString();
         packageName = fullClassName.substring(0, fullClassName.length() - simpleClassName.length() - 1);
         getClassName = "Gen" + simpleClassName;
-        annotation = element.getAnnotation(EasyPrefListSingle.class);
+        annotation = element.getAnnotation(EasyPrefSingleSelection.class);
         key = fullClassName;
 
         try {

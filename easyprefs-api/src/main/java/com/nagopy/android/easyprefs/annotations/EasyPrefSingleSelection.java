@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface EasyPrefListSingle {
+public @interface EasyPrefSingleSelection {
 
     Class<? extends Enum> target();
 

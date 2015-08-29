@@ -8,7 +8,7 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
-import com.nagopy.android.easyprefs.annotations.EasyPrefListMulti;
+import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
 import com.nagopy.android.easyprefs.preference.AbstractMultiSelectPreference;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
@@ -33,7 +33,7 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.type.MirroredTypeException;
 import javax.tools.Diagnostic;
 
-public class MultiListGenerator extends Generator{
+public class MultiSelectionGenerator extends Generator{
 
     final Element element;
     final String fullClassName;
@@ -41,17 +41,17 @@ public class MultiListGenerator extends Generator{
     final String packageName;
     final String getClassName;
     final String key;
-    final EasyPrefListMulti annotation;
+    final EasyPrefMultiSelection annotation;
     private String targetClassName;
 
-    public MultiListGenerator(ProcessingEnvironment processingEnv, Element element) {
+    public MultiSelectionGenerator(ProcessingEnvironment processingEnv, Element element) {
         super(processingEnv);
         this.element = element;
         fullClassName = element.asType().toString();
         simpleClassName = element.getSimpleName().toString();
         packageName = fullClassName.substring(0, fullClassName.length() - simpleClassName.length() - 1);
         getClassName = "Gen" + simpleClassName;
-        annotation = element.getAnnotation(EasyPrefListMulti.class);
+        annotation = element.getAnnotation(EasyPrefMultiSelection.class);
         key = fullClassName;
 
         try {
