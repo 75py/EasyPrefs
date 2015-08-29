@@ -30,25 +30,25 @@ import com.nagopy.android.easyprefs.SingleSelectionItem;
 
 import java.util.List;
 
-public abstract class AbstractSingleSelectPreference<T extends Enum & SingleSelectionItem> extends PreferenceCategory implements Preference.OnPreferenceChangeListener {
+public abstract class AbstractSingleSelectionPreference<T extends Enum & SingleSelectionItem> extends PreferenceCategory implements Preference.OnPreferenceChangeListener {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public AbstractSingleSelectPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public AbstractSingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
 
-    public AbstractSingleSelectPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AbstractSingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
-    public AbstractSingleSelectPreference(Context context, AttributeSet attrs) {
+    public AbstractSingleSelectionPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public AbstractSingleSelectPreference(Context context) {
+    public AbstractSingleSelectionPreference(Context context) {
         super(context);
         init(context);
     }

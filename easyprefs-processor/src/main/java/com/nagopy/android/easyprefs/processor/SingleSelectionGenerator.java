@@ -9,7 +9,7 @@ import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
 import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
-import com.nagopy.android.easyprefs.preference.AbstractSingleSelectPreference;
+import com.nagopy.android.easyprefs.preference.AbstractSingleSelectionPreference;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
@@ -229,9 +229,9 @@ public class SingleSelectionGenerator extends Generator {
                 .addStatement("return $L", annotation.nullable())
                 .build();
 
-        TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "Preference")
+        TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "_SingleSelectionPreference")
                 .addModifiers(Modifier.PUBLIC)
-                .superclass(ParameterizedTypeName.get(ClassName.get(AbstractSingleSelectPreference.class)
+                .superclass(ParameterizedTypeName.get(ClassName.get(AbstractSingleSelectionPreference.class)
                         , TypeVariableName.get(targetClassName)))
                 .addMethod(constructor1)
                 .addMethod(constructor2)

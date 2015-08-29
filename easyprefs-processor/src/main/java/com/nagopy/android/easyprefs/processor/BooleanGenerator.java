@@ -171,7 +171,7 @@ public class BooleanGenerator extends Generator {
             initialize.addStatement("setSummary($S)", easyPrefBoolean.summaryStr());
         }
 
-        TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "Preference")
+        TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "_CheckBoxPreference")
                 .addModifiers(Modifier.PUBLIC)
                 .superclass(CheckBoxPreference.class)
                 .addMethod(constructor1)

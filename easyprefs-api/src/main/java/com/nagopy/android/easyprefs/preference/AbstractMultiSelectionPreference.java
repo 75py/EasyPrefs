@@ -29,25 +29,25 @@ import com.nagopy.android.easyprefs.MultiSelectionItem;
 
 import java.util.List;
 
-public abstract class AbstractMultiSelectPreference<T extends Enum & MultiSelectionItem> extends PreferenceCategory implements Preference.OnPreferenceChangeListener {
+public abstract class AbstractMultiSelectionPreference<T extends Enum & MultiSelectionItem> extends PreferenceCategory implements Preference.OnPreferenceChangeListener {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public AbstractMultiSelectPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public AbstractMultiSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
 
-    public AbstractMultiSelectPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AbstractMultiSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
-    public AbstractMultiSelectPreference(Context context, AttributeSet attrs) {
+    public AbstractMultiSelectionPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public AbstractMultiSelectPreference(Context context) {
+    public AbstractMultiSelectionPreference(Context context) {
         super(context);
         init(context);
     }

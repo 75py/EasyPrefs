@@ -9,7 +9,7 @@ import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
 import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
-import com.nagopy.android.easyprefs.preference.AbstractMultiSelectPreference;
+import com.nagopy.android.easyprefs.preference.AbstractMultiSelectionPreference;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
@@ -273,9 +273,9 @@ public class MultiSelectionGenerator extends Generator {
                 .addStatement("return $L", annotation.nullable())
                 .build();
 
-        TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "Preference")
+        TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "_MultiSelectionPreference")
                 .addModifiers(Modifier.PUBLIC)
-                .superclass(ParameterizedTypeName.get(ClassName.get(AbstractMultiSelectPreference.class)
+                .superclass(ParameterizedTypeName.get(ClassName.get(AbstractMultiSelectionPreference.class)
                         , TypeVariableName.get(targetClassName)))
                 .addMethod(constructor1)
                 .addMethod(constructor2)
