@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="easyprefs-processor.easyprefs-processor">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/easyprefs-processor/build/libs/easyprefs-processor.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
