@@ -46,6 +46,8 @@ public class SingleSelectionGenerator extends Generator {
         super(processingEnv);
         this.element = element;
         fullClassName = element.asType().toString();
+
+        System.out.println("fullClassName:" + fullClassName);
         simpleClassName = element.getSimpleName().toString();
         packageName = fullClassName.substring(0, fullClassName.length() - simpleClassName.length() - 1);
         getClassName = "Gen" + simpleClassName;
@@ -72,6 +74,8 @@ public class SingleSelectionGenerator extends Generator {
 
         if (annotation.defValue() != null && annotation.defValue().length() > 0) {
             constructor.addStatement("defValue = $L.valueOf($S)", targetClassName, annotation.defValue());
+        } else {
+            constructor.addStatement("defValue = null");
         }
 
         MethodSpec.Builder getValue = MethodSpec.methodBuilder("getValue")
@@ -187,12 +191,10 @@ public class SingleSelectionGenerator extends Generator {
             initialize.addStatement("setTitle($S)", annotation.titleStr());
         } else {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "title or titleStr is required.");
-            throw new RuntimeException("title or titleStr is required.");
+            return;
         }
 
-        if (annotation.defValue().length() > 0) {
-            initialize.addStatement("setDefaultValue($S)", annotation.defValue());
-        }
+        initialize.addStatement("setDefaultValue($S)", annotation.defValue());
 
         ParameterizedTypeName parameterizedTypeName = ParameterizedTypeName.get(ClassName.get(List.class),
                 TypeVariableName.get(targetClassName));

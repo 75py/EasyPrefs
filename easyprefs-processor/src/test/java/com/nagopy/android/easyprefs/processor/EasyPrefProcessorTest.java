@@ -33,16 +33,42 @@ public class EasyPrefProcessorTest {
 
     @After
     public void tearDown() throws Exception {
-
     }
 
     @Test
-    public void testBool() throws Throwable {
+    public void bool() throws Throwable {
         testProvider("BoolPrefSample");
         testProvider("BoolPrefSample2");
-
         testBoolPreference("BoolPrefSample");
         testBoolPreference("BoolPrefSample2");
+    }
+
+    @Test
+    public void boolコンパイル時チェック_タイトル未指定() throws Throwable {
+        JavaFileObject src = getJavaFileObject("BoolPrefSample", "validate/bool/Title.txt");
+        assert_().about(javaSource())
+                .that(src)
+                .processedWith(new EasyPrefProcessor())
+                .failsToCompile()
+                .withErrorContaining("title or titleStr is required.");
+    }
+
+    @Test
+    public void singleSelection() throws Throwable {
+        testProvider("SingleSelectionSample");
+        testProvider("SingleSelectionSample2");
+        testSingleSelectionPreference("SingleSelectionSample");
+        testSingleSelectionPreference("SingleSelectionSample2");
+    }
+
+    @Test
+    public void singleSelectionコンパイル時チェック_タイトル未指定() throws Throwable {
+        JavaFileObject src = getJavaFileObject("SingleSelectionSample", "validate/singleselection/Title.txt");
+        assert_().about(javaSource())
+                .that(src)
+                .processedWith(new EasyPrefProcessor())
+                .failsToCompile()
+                .withErrorContaining("title or titleStr is required.");
     }
 
     private void testProvider(String testCaseName) throws IOException, URISyntaxException {
@@ -56,6 +82,13 @@ public class EasyPrefProcessorTest {
         JavaFileObject expected = getJavaFileObject(testCaseName + "_CheckBoxPreference", testCaseName + "Preference.txt");
         compare(src, expected);
     }
+
+    private void testSingleSelectionPreference(String testCaseName) throws IOException, URISyntaxException {
+        JavaFileObject src = getJavaFileObject(testCaseName, testCaseName + ".txt");
+        JavaFileObject expected = getJavaFileObject(testCaseName + "_SingleSelectionPreference", testCaseName + "Preference.txt");
+        compare(src, expected);
+    }
+
 
     private void compare(JavaFileObject src, JavaFileObject expected) {
         assert_().about(javaSource())

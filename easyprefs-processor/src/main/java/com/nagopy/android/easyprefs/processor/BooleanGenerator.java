@@ -162,7 +162,8 @@ public class BooleanGenerator extends Generator {
             initialize.addStatement("setTitle($S)", easyPrefBoolean.titleStr());
         } else {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "title or titleStr is required.");
-            throw new RuntimeException("title or titleStr is required.");
+//            throw new RuntimeException("title or titleStr is required.");
+            return;
         }
 
         if (easyPrefBoolean.summary() > 0) {
