@@ -1,3 +1,5 @@
+import org.gradle.internal.jvm.Jvm
+
 apply plugin: 'java'
 
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -8,16 +10,24 @@ dependencies {
     compile 'com.google.auto.service:auto-service:1.0-rc2'
     compile 'com.squareup:javapoet:1.2.0'
 
+    testCompile files("${SDK_DIR}/platforms/android-${TARGET_SDK_VERSION}/android.jar")
+    testCompile 'com.google.dagger:dagger:2.0'
+    testCompile 'org.glassfish:javax.annotation:10.0-b28'
     testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:1.7.0'
     testCompile 'com.google.testing.compile:compile-testing:0.6'
+    testCompile files(Jvm.current().getToolsJar())
+
 }
 
+//noinspection GroovyAssignabilityCheck
 sourceSets {
     main {
         java {
             srcDir 'src/main/java'
-            srcDir  '../easyprefs-api/src/main/java'
-            srcDir  '../easyprefs-api/build/generated/source/r/release'
+            srcDir '../easyprefs-api/src/main/java'
+            srcDir '../easyprefs-api/build/generated/source/r/release'
         }
     }
 }
+sourceSets.test.output.resourcesDir = 'build/classes/test'

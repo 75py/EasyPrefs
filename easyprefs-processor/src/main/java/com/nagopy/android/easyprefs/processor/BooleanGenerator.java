@@ -171,6 +171,12 @@ public class BooleanGenerator extends Generator {
             initialize.addStatement("setSummary($S)", easyPrefBoolean.summaryStr());
         }
 
+        if (easyPrefBoolean.defValue() != 0) {
+            initialize.addStatement("setDefaultValue(getContext().getResources().getBoolean($L))", easyPrefBoolean.defValue());
+        } else {
+            initialize.addStatement("setDefaultValue($L)", easyPrefBoolean.defValueBool());
+        }
+
         TypeSpec prefType = TypeSpec.classBuilder(simpleClassName + "_CheckBoxPreference")
                 .addModifiers(Modifier.PUBLIC)
                 .superclass(CheckBoxPreference.class)

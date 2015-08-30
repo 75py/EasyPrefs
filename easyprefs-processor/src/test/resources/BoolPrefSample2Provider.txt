@@ -1,0 +1,47 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import java.lang.Boolean;
+import java.lang.Override;
+import java.lang.String;
+
+public class GenBoolPrefSample2 implements BoolPrefSample2 {
+  private final SharedPreferences sp;
+
+  private final boolean defValue;
+
+  private final String key;
+
+  public GenBoolPrefSample2(Application application) {
+    sp = PreferenceManager.getDefaultSharedPreferences(application);
+    key = "com.nagopy.android.easyprefs.sample.prefs.BoolPrefSample2";
+    defValue = application.getResources().getBoolean(3);
+  }
+
+  @Override
+  public Boolean getValue() {
+    return sp.getBoolean(key, defValue);
+  }
+
+  @Override
+  public Boolean getDefaultValue() {
+    return defValue;
+  }
+
+  @Override
+  public boolean updateValue(Boolean newValue) {
+    return sp.edit().putBoolean(key, newValue).commit();
+  }
+
+  @Override
+  public boolean clearValue() {
+    return sp.edit().remove(key).commit();
+  }
+
+  @Override
+  public String getKey() {
+    return key;
+  }
+}
