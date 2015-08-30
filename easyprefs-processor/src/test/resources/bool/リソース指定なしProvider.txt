@@ -7,16 +7,16 @@ import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 
-public class GenBoolPrefSample2 implements BoolPrefSample2 {
+public class GenBoolPrefSample implements BoolPrefSample {
   private final SharedPreferences sp;
 
   private final boolean defValue;
 
   private final String key;
 
-  public GenBoolPrefSample2(Application application) {
+  public GenBoolPrefSample(Application application) {
     sp = PreferenceManager.getDefaultSharedPreferences(application);
-    key = "com.nagopy.android.easyprefs.sample.prefs.BoolPrefSample2";
+    key = "com.nagopy.android.easyprefs.sample.prefs.BoolPrefSample";
     defValue = application.getResources().getBoolean(3);
   }
 

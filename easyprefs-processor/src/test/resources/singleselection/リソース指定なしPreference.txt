@@ -10,39 +10,39 @@ import java.lang.String;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SingleSelectionSample2_SingleSelectionPreference extends AbstractSingleSelectionPreference<com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample2.TargetEnum> {
-  public SingleSelectionSample2_SingleSelectionPreference(Context context) {
+public class SingleSelectionSample_SingleSelectionPreference extends AbstractSingleSelectionPreference<com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum> {
+  public SingleSelectionSample_SingleSelectionPreference(Context context) {
     super(context);
     initialize(context);
   }
 
-  public SingleSelectionSample2_SingleSelectionPreference(Context context, AttributeSet attrs) {
+  public SingleSelectionSample_SingleSelectionPreference(Context context, AttributeSet attrs) {
     super(context, attrs);
     initialize(context);
   }
 
   @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-  public SingleSelectionSample2_SingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+  public SingleSelectionSample_SingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
     initialize(context);
   }
 
   @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-  public SingleSelectionSample2_SingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+  public SingleSelectionSample_SingleSelectionPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
     initialize(context);
   }
 
   private void initialize(Context context) {
-    setKey("com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample2");
+    setKey("com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample");
     setTitle(1);
     setDefaultValue("TEST");
   }
 
   @Override
-  protected List<com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample2.TargetEnum> getEntries() {
+  protected List<com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum> getEntries() {
     List entries = new ArrayList<>();
-    for (com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample2.TargetEnum value : com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample2.TargetEnum.values()) {
+    for (com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum value : com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum.values()) {
       if (value.minSdkVersion() <= Build.VERSION.SDK_INT ) {
         entries.add(value);
       }
@@ -52,7 +52,7 @@ public class SingleSelectionSample2_SingleSelectionPreference extends AbstractSi
 
   @Override
   protected String getDefaultValue() {
-    return com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample2.TargetEnum.TEST.name();
+    return com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum.TEST.name();
   }
 
   @Override

@@ -7,8 +7,8 @@ import com.nagopy.android.easyprefs.EasyPref;
 import com.nagopy.android.easyprefs.SingleSelectionItem;
 import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
 
-@EasyPrefSingleSelection(title = 1, defValue = "TEST", nullable = false, target = SingleSelectionSample2.TargetEnum.class)
-public interface SingleSelectionSample2 extends EasyPref<SingleSelectionSample2.TargetEnum> {
+@EasyPrefSingleSelection(title = 1, defValue = "TEST", nullable = false, target = SingleSelectionSample.TargetEnum.class)
+public interface SingleSelectionSample extends EasyPref<SingleSelectionSample.TargetEnum> {
 
     static enum TargetEnum implements SingleSelectionItem {
         TEST {

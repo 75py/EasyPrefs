@@ -4,5 +4,5 @@ import com.nagopy.android.easyprefs.BoolPref;
 import com.nagopy.android.easyprefs.annotations.EasyPrefBoolean;
 
 @EasyPrefBoolean(title = 1, summary = 2, defValue = 3, inject = false)
-public interface BoolPrefSample2 extends BoolPref {
+public interface BoolPrefSample extends BoolPref {
 }
