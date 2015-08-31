@@ -12,6 +12,7 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
+import javax.tools.Diagnostic;
 
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("com.nagopy.android.easyprefs.annotations.*")
@@ -29,7 +30,9 @@ public class EasyPrefProcessor extends AbstractProcessor {
         annotations.forEach(annotation -> {
             roundEnv.getElementsAnnotatedWith(annotation).forEach(element -> {
                 Generator generator = Generator.getInstance(annotation, processingEnv, element);
-                if (generator.validate()) {
+                Set<String> errors = generator.validate();
+                errors.forEach(s -> processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, s));
+                if (errors.isEmpty()) {
                     generator.generateProviderClass();
                     generator.generateNewPreferenceMethod();
                     daggerModuleGenerator.addModule(generator);

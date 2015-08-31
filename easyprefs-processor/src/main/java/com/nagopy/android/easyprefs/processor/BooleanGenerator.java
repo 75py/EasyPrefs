@@ -18,7 +18,9 @@ import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
@@ -46,6 +48,17 @@ public class BooleanGenerator extends Generator {
         key = fullClassName;
     }
 
+    @Override
+    public Set<String> validate() {
+        Set<String> errors = new HashSet<>();
+
+        if (easyPrefBoolean.title() == 0 &&
+                (easyPrefBoolean.titleStr() == null || easyPrefBoolean.titleStr().isEmpty())) {
+            errors.add("title or titleStr is required.");
+        }
+
+        return errors;
+    }
 
     @Override
     public void generateProviderClass() {

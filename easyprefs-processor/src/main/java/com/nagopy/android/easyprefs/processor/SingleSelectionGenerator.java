@@ -68,7 +68,7 @@ public class SingleSelectionGenerator extends Generator {
     }
 
     @Override
-    public boolean validate() {
+    public Set<String> validate() {
         Set<String> errors = new LinkedHashSet<>();
 
         if (annotation.title() == 0 &&
@@ -85,7 +85,7 @@ public class SingleSelectionGenerator extends Generator {
         for (String error : errors) {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, error);
         }
-        return errors.isEmpty();
+        return errors;
     }
 
     @Override

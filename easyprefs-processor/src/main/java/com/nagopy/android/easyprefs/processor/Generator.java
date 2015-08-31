@@ -6,7 +6,9 @@ import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
 import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
 import com.squareup.javapoet.MethodSpec;
 
+import java.util.Collections;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
@@ -21,8 +23,8 @@ public abstract class Generator {
         this.processingEnv = processingEnv;
     }
 
-    public boolean validate() {
-        return true;
+    public Set<String> validate() {
+        return Collections.emptySet();
     }
 
     public abstract void generateProviderClass();
