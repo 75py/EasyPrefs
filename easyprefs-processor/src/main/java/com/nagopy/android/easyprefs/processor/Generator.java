@@ -21,6 +21,10 @@ public abstract class Generator {
         this.processingEnv = processingEnv;
     }
 
+    public boolean validate() {
+        return true;
+    }
+
     public abstract void generateProviderClass();
 
     public abstract void generateNewPreferenceMethod();

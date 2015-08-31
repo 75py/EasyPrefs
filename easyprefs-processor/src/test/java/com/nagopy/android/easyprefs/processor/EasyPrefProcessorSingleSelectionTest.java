@@ -33,7 +33,17 @@ public class EasyPrefProcessorSingleSelectionTest {
                 .that(src)
                 .processedWith(new EasyPrefProcessor())
                 .failsToCompile()
-                .withErrorContaining("title or titleStr is required.");
+                .withErrorContaining("title or titleStr is required");
+    }
+
+    @Test
+    public void コンパイル時チェック_Interface未実装() throws Throwable {
+        JavaFileObject src = testHelper.getJavaFileObject("Interface未実装.txt");
+        assert_().about(javaSource())
+                .that(src)
+                .processedWith(new EasyPrefProcessor())
+                .failsToCompile()
+                .withErrorContaining("must implements SingleSelectionItem");
     }
 
 }
