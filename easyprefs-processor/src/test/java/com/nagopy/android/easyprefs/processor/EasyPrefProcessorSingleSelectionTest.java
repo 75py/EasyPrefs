@@ -46,4 +46,14 @@ public class EasyPrefProcessorSingleSelectionTest {
                 .withErrorContaining("must implements SingleSelectionItem");
     }
 
+    @Test
+    public void コンパイル時チェック_null不許可でデフォルト値なし() throws Throwable {
+        JavaFileObject src = testHelper.getJavaFileObject("null不許可でデフォルト値なし.txt");
+        assert_().about(javaSource())
+                .that(src)
+                .processedWith(new EasyPrefProcessor())
+                .failsToCompile()
+                .withErrorContaining("defValue is required");
+    }
+
 }

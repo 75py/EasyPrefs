@@ -82,6 +82,10 @@ public class SingleSelectionGenerator extends Generator {
             }
         });
 
+        if (!annotation.nullable() && annotation.defValue().isEmpty()) {
+            errors.add("defValue is required if it's not nullable");
+        }
+
         for (String error : errors) {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, error);
         }
@@ -243,9 +247,6 @@ public class SingleSelectionGenerator extends Generator {
                 .addModifiers(Modifier.PROTECTED)
                 .returns(String.class);
         if (annotation.defValue().isEmpty()) {
-            if (!annotation.nullable()) {
-                processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "defValue is required if it's not nullable");
-            }
             getDefaultValue.addStatement("return null");
         } else {
             getDefaultValue.addStatement("return $L.$L.name()", targetClassName, annotation.defValue());
