@@ -8,8 +8,10 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
+import com.nagopy.android.easyprefs.MultiSelectionItem;
 import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
 import com.nagopy.android.easyprefs.preference.AbstractMultiSelectionPreference;
+import com.nagopy.android.easyprefs.processor.util.ProcessorUtil;
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
@@ -43,7 +45,9 @@ public class MultiSelectionGenerator extends Generator {
     final String getClassName;
     final String key;
     final EasyPrefMultiSelection annotation;
+
     private String targetClassName;
+    Optional<Element> targetClassElement;
 
     public MultiSelectionGenerator(ProcessingEnvironment processingEnv, Element element) {
         super(processingEnv);
@@ -57,9 +61,36 @@ public class MultiSelectionGenerator extends Generator {
 
         try {
             targetClassName = annotation.target().getName();
+            targetClassElement = Optional.empty();
         } catch (MirroredTypeException mte) {
             targetClassName = mte.getTypeMirror().toString();
+            targetClassElement = ProcessorUtil.toElement(mte.getTypeMirror());
         }
+    }
+
+    @Override
+    public Set<String> validate() {
+        Set<String> errors = new LinkedHashSet<>();
+
+        if (annotation.title() == 0 &&
+                (annotation.titleStr() == null || annotation.titleStr().isEmpty())) {
+            errors.add("title or titleStr is required.");
+        }
+
+        targetClassElement.ifPresent(e -> {
+            if (!ProcessorUtil.isImplements(e, MultiSelectionItem.class.getName())) {
+                errors.add(e.getSimpleName() + " must implements MultiSelectionItem");
+            }
+        });
+
+        if (!annotation.nullable() && annotation.defValue().isEmpty()) {
+            errors.add("defValue is required if it's not nullable");
+        }
+
+        for (String error : errors) {
+            processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, error);
+        }
+        return errors;
     }
 
     @Override

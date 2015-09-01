@@ -1,0 +1,83 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import java.lang.Override;
+import java.lang.String;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import javax.inject.Inject;
+
+public class GenMultiSelectionSample implements MultiSelectionSample {
+  private final SharedPreferences sp;
+
+  private final List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> defValue;
+
+  private final String key;
+
+  @Inject
+  public GenMultiSelectionSample(Application application) {
+    sp = PreferenceManager.getDefaultSharedPreferences(application);
+    key = "com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample";
+    defValue = str2Enum("");
+  }
+
+  @Override
+  public List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> getValue() {
+    String value = sp.getString(key, null);
+    return str2Enum(value);
+  }
+
+  @Override
+  public List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> getDefaultValue() {
+    return defValue;
+  }
+
+  @Override
+  public boolean updateValue(List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> newValue) {
+    return sp.edit().putStringSet(key, toStringSet(newValue)).commit();
+  }
+
+  @Override
+  public boolean clearValue() {
+    return sp.edit().remove(key).commit();
+  }
+
+  @Override
+  public String getKey() {
+    return key;
+  }
+
+  private List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> str2Enum(String strValue) {
+    if (strValue == null || strValue.isEmpty()) {
+      return Collections.emptyList();
+    }
+    return strArray2Enum(strValue.split(","));
+  }
+
+  private List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> strArray2Enum(String[] strValues) {
+    if (strValues == null || strValues.length == 0) {
+      return Collections.emptyList();
+    }
+    List result = new ArrayList<>(strValues.length);
+    for (String s : strValues) {
+      result.add(com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum.valueOf(s));
+    }
+    return result;
+  }
+
+  private Set<String> toStringSet(List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> values) {
+    if (values == null || values.isEmpty()) {
+      return Collections.emptySet();
+    }
+    Set<String> result = new LinkedHashSet();
+    for (com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum value : values) {
+      result.add(value.name());
+    }
+    return result;
+  }
+}
