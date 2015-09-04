@@ -1,0 +1,16 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import android.content.Context;
+import android.os.Build;
+
+import com.nagopy.android.easyprefs.EasyPref;
+import com.nagopy.android.easyprefs.MultiSelectionItem;
+import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
+
+@EasyPrefMultiSelection(titleStr = "title", defValue = "", nullable = true, target = MultiSelectionSample.TargetEnum.class)
+public interface MultiSelectionSample extends EasyPref<MultiSelectionSample.TargetEnum> {
+
+    static enum TargetEnum {
+        TEST, TEST2;
+    }
+}

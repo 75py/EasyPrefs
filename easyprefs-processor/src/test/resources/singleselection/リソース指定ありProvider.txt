@@ -1,0 +1,52 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import java.lang.Override;
+import java.lang.String;
+import javax.inject.Inject;
+
+public class GenSingleSelectionSample implements SingleSelectionSample {
+  private final SharedPreferences sp;
+
+  private final com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum defValue;
+
+  private final String key;
+
+  @Inject
+  public GenSingleSelectionSample(Application application) {
+    sp = PreferenceManager.getDefaultSharedPreferences(application);
+    key = "com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample";
+    defValue = null;
+  }
+
+  @Override
+  public com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum getValue() {
+    String value = sp.getString(key, null);
+    if (value == null || value.isEmpty()) {
+      return defValue;
+    }
+    return com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum.valueOf(value);
+  }
+
+  @Override
+  public com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum getDefaultValue() {
+    return defValue;
+  }
+
+  @Override
+  public boolean updateValue(com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum newValue) {
+    return sp.edit().putString(key, newValue.name()).commit();
+  }
+
+  @Override
+  public boolean clearValue() {
+    return sp.edit().remove(key).commit();
+  }
+
+  @Override
+  public String getKey() {
+    return key;
+  }
+}

@@ -1,0 +1,8 @@
+package com.nagopy.android.easyprefs.sample.prefs;
+
+import com.nagopy.android.easyprefs.BoolPref;
+import com.nagopy.android.easyprefs.annotations.EasyPrefBoolean;
+
+@EasyPrefBoolean(titleStr = "test title", summaryStr = "test summary", defValueBool = true)
+public interface BoolPrefSample extends BoolPref {
+}
