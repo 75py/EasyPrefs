@@ -1,7 +1,11 @@
 package com.nagopy.android.easyprefs.processor;
 
 import com.google.auto.service.AutoService;
+import com.nagopy.android.easyprefs.annotations.EasyPrefBoolean;
+import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
+import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
 
+import java.util.Arrays;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -27,18 +31,20 @@ public class EasyPrefProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         DaggerModuleGenerator daggerModuleGenerator = new DaggerModuleGenerator(processingEnv);
-        annotations.forEach(annotation -> {
-            roundEnv.getElementsAnnotatedWith(annotation).forEach(element -> {
-                Generator generator = Generator.getInstance(annotation, processingEnv, element);
-                Set<String> errors = generator.validate();
-                errors.forEach(s -> processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, s));
-                if (errors.isEmpty()) {
-                    generator.generateProviderClass();
-                    generator.generateNewPreferenceMethod();
-                    daggerModuleGenerator.addModule(generator);
-                }
-            });
-        });
+        Arrays.asList(
+                EasyPrefBoolean.class,
+                EasyPrefMultiSelection.class,
+                EasyPrefSingleSelection.class
+        ).forEach(annotation -> roundEnv.getElementsAnnotatedWith(annotation).forEach(element -> {
+            Generator generator = Generator.getInstance(annotation, processingEnv, element);
+            Set<String> errors = generator.validate();
+            errors.forEach(s -> processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, s));
+            if (errors.isEmpty()) {
+                generator.generateProviderClass();
+                generator.generateNewPreferenceMethod();
+                daggerModuleGenerator.addModule(generator);
+            }
+        }));
         daggerModuleGenerator.generate();
         return true;
     }

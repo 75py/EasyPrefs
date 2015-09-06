@@ -6,6 +6,7 @@ import com.nagopy.android.easyprefs.annotations.EasyPrefMultiSelection;
 import com.nagopy.android.easyprefs.annotations.EasyPrefSingleSelection;
 import com.squareup.javapoet.MethodSpec;
 
+import java.lang.annotation.Annotation;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
@@ -33,16 +34,15 @@ public abstract class Generator {
 
     public abstract Optional<MethodSpec> generateDaggerProviderMethod();
 
-    public static Generator getInstance(TypeElement annotationTypeElement, ProcessingEnvironment processingEnv, Element element) {
-        Name qualifiedName = annotationTypeElement.getQualifiedName();
-        if (qualifiedName.contentEquals(EasyPrefBoolean.class.getCanonicalName())) {
+    public static Generator getInstance(Class<? extends Annotation> annotationClass, ProcessingEnvironment processingEnv, Element element) {
+        if (annotationClass == EasyPrefBoolean.class) {
             return new BooleanGenerator(processingEnv, element);
-        } else if (qualifiedName.contentEquals(EasyPrefSingleSelection.class.getCanonicalName())) {
+        } else if (annotationClass == EasyPrefSingleSelection.class) {
             return new SingleSelectionGenerator(processingEnv, element);
-        } else if (qualifiedName.contentEquals(EasyPrefMultiSelection.class.getCanonicalName())) {
+        } else if (annotationClass == EasyPrefMultiSelection.class) {
             return new MultiSelectionGenerator(processingEnv, element);
         }
 
-        throw new IllegalArgumentException("Unknown:" + annotationTypeElement.getSimpleName());
+        throw new IllegalArgumentException("Unknown:" + annotationClass.getSimpleName());
     }
 }
