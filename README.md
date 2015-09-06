@@ -45,8 +45,8 @@ def getSdkDir() {
 apply plugin: 'com.neenbedankt.android-apt'
 
 dependencies {
-    compile 'com.nagopy.android:easyprefs:0.1.1'
-    apt 'com.nagopy.android:easyprefs-processor:0.1.1'
+    compile 'com.nagopy.android:easyprefs:0.1.2'
+    apt 'com.nagopy.android:easyprefs-processor:0.1.2'
     apt files("${SDK_DIR}/platforms/android-${TARGET_SDK_VERSION}/android.jar")
 }
 ```

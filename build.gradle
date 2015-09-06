@@ -20,6 +20,7 @@ allprojects {
 ext {
     SDK_DIR = getSdkDir()
     TARGET_SDK_VERSION = 22
+    PUBLISH_VERSION = version()
 }
 
 def getSdkDir() {
