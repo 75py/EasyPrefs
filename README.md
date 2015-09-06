@@ -28,10 +28,25 @@ buildscript {
     }
 }
 
+ext {
+    SDK_DIR = getSdkDir()
+    TARGET_SDK_VERSION = 22
+}
+
+def getSdkDir() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkDir = properties.getProperty('sdk.dir', null)
+
+    return sdkDir
+}
+
+
 apply plugin: 'com.neenbedankt.android-apt'
 
 dependencies {
-    compile 'com.nagopy.android:easyprefs:0.1.0'
-    apt 'com.nagopy.android:easyprefs-processor:0.1.0'
+    compile 'com.nagopy.android:easyprefs:0.1.1'
+    apt 'com.nagopy.android:easyprefs-processor:0.1.1'
+    apt files("${SDK_DIR}/platforms/android-${TARGET_SDK_VERSION}/android.jar")
 }
 ```
