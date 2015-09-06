@@ -32,7 +32,7 @@ dependencies {
 publish {
     groupId = 'com.nagopy.android'
     artifactId = 'easyprefs'
-    publishVersion = '0.1.1'
+    publishVersion = PUBLISH_VERSION
     desc = 'Preference wrapper'
     bintrayUser = bintray_user
     bintrayKey = bintray_api_key
