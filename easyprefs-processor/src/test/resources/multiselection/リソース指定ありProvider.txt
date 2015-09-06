@@ -54,7 +54,7 @@ public class GenMultiSelectionSample implements MultiSelectionSample {
 
   private List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> str2Enum(String strValue) {
     if (strValue == null || strValue.isEmpty()) {
-      return Collections.emptyList();
+      return getDefaultValue();
     }
     return strArray2Enum(strValue.split(","));
   }

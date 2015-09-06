@@ -112,7 +112,7 @@ public class MultiSelectionGenerator extends Generator {
                 .returns(parameterizedTypeName)
                 .addParameter(String.class, "strValue")
                 .beginControlFlow("if (strValue == null || strValue.isEmpty())")
-                .addStatement("return $T.emptyList()", Collections.class)
+                .addStatement("return getDefaultValue()")
                 .endControlFlow()
                 .addStatement("return strArray2Enum(strValue.split($S))", ",")
                 .build();
@@ -294,7 +294,7 @@ public class MultiSelectionGenerator extends Generator {
             }
             getDefaultValue.addStatement("return null");
         } else {
-            getDefaultValue.addStatement("return $L.$L.name()", targetClassName, annotation.defValue());
+            getDefaultValue.addStatement("return $S", annotation.defValue());
         }
 
         MethodSpec nullable = MethodSpec.methodBuilder("nullable")

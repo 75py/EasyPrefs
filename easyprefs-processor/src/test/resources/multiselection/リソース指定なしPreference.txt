@@ -51,7 +51,7 @@ public class MultiSelectionSample_MultiSelectionPreference extends AbstractMulti
 
   @Override
   protected String getDefaultValue() {
-    return com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum.TEST.name();
+    return "TEST";
   }
 
   @Override
