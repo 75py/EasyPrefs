@@ -27,4 +27,6 @@ public interface SingleSelectionItem {
     String getSummary(Context context);
 
     int minSdkVersion();
+
+    int maxSdkVersion();
 }
