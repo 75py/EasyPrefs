@@ -42,7 +42,7 @@ public class MultiSelectionSample_MultiSelectionPreference extends AbstractMulti
   protected List<com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum> getEntries() {
     List entries = new ArrayList<>();
     for (com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum value : com.nagopy.android.easyprefs.sample.prefs.MultiSelectionSample.TargetEnum.values()) {
-      if (value.minSdkVersion() <= Build.VERSION.SDK_INT ) {
+      if (value.minSdkVersion() <= Build.VERSION.SDK_INT && Build.VERSION.SDK_INT <= value.maxSdkVersion()) {
         entries.add(value);
       }
     }
