@@ -277,7 +277,7 @@ public class MultiSelectionGenerator extends Generator {
                 .returns(parameterizedTypeName)
                 .addStatement("$T entries = new $T<>()", List.class, ArrayList.class)
                 .beginControlFlow("for ($L value : $L.values())", targetClassName, targetClassName)
-                .beginControlFlow("if (value.minSdkVersion() <= $T.SDK_INT )", Build.VERSION.class)
+                .beginControlFlow("if (value.minSdkVersion() <= $T.SDK_INT && $T.SDK_INT <= value.maxSdkVersion() )", Build.VERSION.class, Build.VERSION.class)
                 .addStatement("entries.add(value)")
                 .endControlFlow()
                 .endControlFlow()
