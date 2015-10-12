@@ -112,7 +112,7 @@ public class MultiSelectionGenerator extends Generator {
                 .returns(parameterizedTypeName)
                 .addParameter(String.class, "strValue")
                 .beginControlFlow("if (strValue == null || strValue.isEmpty())")
-                .addStatement("return getDefaultValue()")
+                .addStatement(annotation.nullable() ? "return Collections.emptyList()" : "return getDefaultValue()")
                 .endControlFlow()
                 .addStatement("return strArray2Enum(strValue.split($S))", ",")
                 .build();
