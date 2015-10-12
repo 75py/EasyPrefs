@@ -27,5 +27,10 @@ public enum Category implements SingleSelectionItem {
     public int minSdkVersion() {
         return 0;
     }
+
+    @Override
+    public int maxSdkVersion() {
+        return Integer.MAX_VALUE;
+    }
 }
 

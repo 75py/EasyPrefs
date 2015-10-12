@@ -28,6 +28,11 @@ public interface MultiSelectionSample extends EasyPref<List<MultiSelectionSample
             public int minSdkVersion() {
                 return Build.VERSION_CODES.KITKAT;
             }
+
+            @Override
+            public int maxSdkVersion() {
+                return Integer.MAX_VALUE;
+            }
         }, TEST2 {
             @Override
             public String getTitle(Context context) {
@@ -42,6 +47,11 @@ public interface MultiSelectionSample extends EasyPref<List<MultiSelectionSample
             @Override
             public int minSdkVersion() {
                 return 0;
+            }
+
+            @Override
+            public int maxSdkVersion() {
+                return Integer.MAX_VALUE;
             }
         }
     }

@@ -43,7 +43,7 @@ public class SingleSelectionSample_SingleSelectionPreference extends AbstractSin
   protected List<com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum> getEntries() {
     List entries = new ArrayList<>();
     for (com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum value : com.nagopy.android.easyprefs.sample.prefs.SingleSelectionSample.TargetEnum.values()) {
-      if (value.minSdkVersion() <= Build.VERSION.SDK_INT ) {
+      if (value.minSdkVersion() <= Build.VERSION.SDK_INT && Build.VERSION.SDK_INT <= value.maxSdkVersion() ) {
         entries.add(value);
       }
     }
